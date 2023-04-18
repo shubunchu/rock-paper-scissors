@@ -52,6 +52,7 @@ function game() {
         console.log(result);
         console.log(`Score: ${playerScore} - ${computerScore}`);
     }
+    console.log(`Final score: ${playerScore} - ${computerScore}`);
 }
 
 game();
