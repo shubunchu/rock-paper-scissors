@@ -10,7 +10,6 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
     if (playerSelection == computerSelection) {
         return "It's a tie!";
     }
@@ -37,7 +36,22 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-let playerSelection = "rock";
-let computerSelection = getComputerChoice();
-console.log(`${playerSelection} vs. ${computerSelection}`);
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let round = 0; round < 5; round++) {
+        let playerSelection = prompt("Make your selection! [rock/paper/scissors]").toLowerCase();
+        let computerSelection = getComputerChoice();
+        result = playRound(playerSelection, computerSelection);
+        if (result.includes("win")) {
+            playerScore++;
+        } else if (result.includes("lose")) {
+            computerScore++;
+        }
+        console.log(`${playerSelection} vs. ${computerSelection}`);
+        console.log(result);
+        console.log(`Score: ${playerScore} - ${computerScore}`);
+    }
+}
+
+game();
